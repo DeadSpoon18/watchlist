@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import ResultCard from "../components/ResultCard";
+import TextField from "@material-ui/core/TextField";
 
 const AddMovieScreen = () => {
   const [query, setQuery] = useState("");
@@ -24,16 +25,19 @@ const AddMovieScreen = () => {
       }
     };
     getSearchedMovie();
-    
   }, [query]);
   return (
     <div className="add-page">
       <div className="container">
         <div className="add-content">
           <div className="input-wrapper">
-            <input
+            <TextField
               type="text"
-              placeholder="Search for a movie"
+              autoFocus
+              placeholder="Search for movies"
+              margin="dense"
+              fullWidth
+              variant="outlined"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
             />
@@ -41,8 +45,8 @@ const AddMovieScreen = () => {
           {results.length > 0 &&
             results.map((movie) => (
               <ul className="results" key={movie.id}>
-                <li >
-                  <ResultCard movie={movie}  />
+                <li>
+                  <ResultCard movie={movie} />
                 </li>
               </ul>
             ))}

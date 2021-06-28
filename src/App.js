@@ -4,15 +4,18 @@ import WatchListScreen from "./screens/WatchListScreen";
 import AddMovieScreen from "./screens/AddMovieScreen";
 import Header from "./components/Header";
 import WatchedMovieScreen from "./screens/WatchedMovieScreen";
+import { Container } from "@material-ui/core";
 
 function App() {
   return (
     <>
       <Router>
         <Header />
-        <Route path="/" component={WatchListScreen} exact />
-        <Route path="/add" component={AddMovieScreen} />
-        <Route path="/watched" component={WatchedMovieScreen} />
+        <Container>
+          <Route path="/" component={WatchListScreen} exact />
+          <Route path="/add" component={AddMovieScreen} />
+          <Route path="/watched" component={WatchedMovieScreen} />
+        </Container>
       </Router>
     </>
   );

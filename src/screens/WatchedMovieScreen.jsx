@@ -2,11 +2,15 @@ import React from "react";
 import { useSelector } from "react-redux";
 import MovieCard from "../components/MovieCard";
 
+
 const WatchedMovieScreen = () => {
   const watchedList = useSelector((state) => state.watchedList);
   const { watched } = watchedList;
   return (
+    <>
+    
     <div>
+      
       <div className="movie-page">
         <div className="container">
           <div className="header">
@@ -30,6 +34,7 @@ const WatchedMovieScreen = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
